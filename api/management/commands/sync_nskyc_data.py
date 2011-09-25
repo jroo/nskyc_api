@@ -24,4 +24,6 @@ class Command(NoArgsCommand):
         for p in new_pics:
             p.pk=None
             p.date_posted=p.date_posted + d
+            if p.user.id == 3:
+                p.path = p.path.replace('images', 'dc')
             p.save(using='default')
