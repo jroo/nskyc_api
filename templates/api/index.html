@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html id="home" lang="en"> 
+<head> 
+	<meta charset=utf-8 /> 
+	<title>NSKYC API</title>
+	<link rel="stylesheet" href="styles.css" type="text/css" media="screen"/> 
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		});
+	</script>
+	<script type="text/javascript" src="http://use.typekit.com/egc1gjj.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-147514-31']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();	
+	</script>
+</head>
+<body id="join-bg">
+
+	<div id="wrapper">
+		<span id="logo"><span id="b1">N</span><span id="b2">S</span><span id="b3">K</span><span id="b4">Y</span><span id="b5">C</span> API</span>
+        
+        <h3>Latest 20 pictures</h3>
+        <a href="/api/v1/picture/?format=json">http://nskyc.eleventy6.com/api/v1/picture/</a>
+                		
+        <h3>Latest 100 pictures for Washington, DC Camera</h3>
+<a href="/api/v1/picture/?location__name=dc&format=json">http://nskyc.eleventy6.com/api/v1/picture/?location__name=dc</a>
+
+        <h3>All pictures for Washington, DC in August</h3>
+<a href="/api/v1/picture/?location__name=dc&format=json&date_posted__gte=2011-08-01&date_posted__lte=2011-08-31">http://nskyc.eleventy6.com/api/v1/picture/?location__name=dc&date_posted__gte=2011-08-01&date_posted__lte=2011-08-31</a>
+
+        <h3>All locations</h3>
+<a href="/api/v1/location/?format=json">http://nskyc.eleventy6.com/api/v1/location/</a>
+		
+		<br /><br />
+		
+		
+		<div id="back-btn"><a href="http://nskyc.com/">Back</a></div>
+	</div>
+</body>
+</html>

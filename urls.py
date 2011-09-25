@@ -1,25 +1,17 @@
 from django.conf.urls.defaults import patterns, include, url
-from api.api import PictureResource, LocationResource
+from django.views.generic.simple import direct_to_template
+from django.views.decorators.cache import cache_page
+
 from tastypie.api import Api
+from api.api import PictureResource, LocationResource
 
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
 
 v1_api = Api(api_name='v1')
 v1_api.register(LocationResource())
 v1_api.register(PictureResource())
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'nskyc.views.home', name='home'),
-    # url(r'^nskyc/', include('nskyc.foo.urls')),
+    (r'^$', cache_page(60 * 15)(direct_to_template), {'template':'api/index.html'}),
+    (r'^styles.css$', cache_page(60 * 15)(direct_to_template), {'template':'api/styles.css', 'mimetype':'text/css'}),
     (r'^api/', include(v1_api.urls)),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
 )
