@@ -20,7 +20,6 @@ class Command(NoArgsCommand):
         latest_time = Pictures.objects.using('default').all().order_by('-date_posted')[0].date_posted
         d = timedelta(hours=7)
         latest_time = latest_time - d
-        print latest_time
         new_pics = Pictures.objects.using('master').filter(date_posted__gt=latest_time)
         for p in new_pics:
             p.pk=None

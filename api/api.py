@@ -22,7 +22,7 @@ class PictureResource(ModelResource):
     location = fields.ForeignKey(LocationResource, 'user', full=True)    
     
     class Meta:
-        queryset = Pictures.objects.all()
+        queryset = Pictures.objects.all().order_by('-date_posted')
         list_allowed_methods = ['get']
         detail_allowed_methods = ['get']
         resource_name = 'picture'
@@ -31,6 +31,8 @@ class PictureResource(ModelResource):
             'location': ALL_WITH_RELATIONS,
             'date_posted': ['exact', 'range', 'gt', 'gte', 'lt', 'lte'],
         }
+        
+        ordering = ['date_posted']
         
         cache = SimpleCache()
         default_format = 'application/json'
